@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  wiki-cars-postgresql-dev:
+    container_name: wiki-cars-bdd-dev
+    image: postgres:15.2
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: wiki-cars
+    networks:
+      - nest-app
+networks:
+  nest-app:
