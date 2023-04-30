@@ -13,26 +13,28 @@ datasource db {
 model User {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  email     String
-  username  String
-  // ? = optional
+  updatedAt DateTime @default(now())
+  role      Role     @default(USER)
+
+  email    String @unique
+  password String
+
+  username  String?
   firstName String?
   lastName  String?
-  password  String
 }
 
 model Car {
-  id                String          @id @default(uuid())
-  createdAt         DateTime        @default(now())
-  updatedAt         DateTime        @updatedAt
-  manufacturer      CarManufacturer @relation(fields: [carManufacturerId], references: [id])
-  model             String
-  year              Int
-  type              String
-  engine            String
-  fuel              String
-  carManufacturerId String
+  id             String          @id @default(uuid())
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  manufacturerId String
+  manufacturer   CarManufacturer @relation(fields: [manufacturerId], references: [id])
+  model          String
+  year           Int
+  type           String
+  engine         String
+  fuel           String
 }
 
 model CarManufacturer {
@@ -40,4 +42,9 @@ model CarManufacturer {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Car       Car[]
+}
+
+enum Role {
+  USER
+  ADMIN
 }
