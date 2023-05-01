@@ -28,6 +28,8 @@ export class AuthenticationGuard implements CanActivate {
             throw new UnauthorizedException()
         }
         return true
+
+        //
     }
 
     private extractTokenFromHeader(request: Request): string | undefined {
