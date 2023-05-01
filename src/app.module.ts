@@ -5,7 +5,7 @@ import { CarModule } from './modules/car/car.module'
 import { CarBrandModule } from './modules/car-brand/car-brand.module'
 import { PrismaModule } from './modules/prisma/prisma.module'
 import { ConfigModule } from '@nestjs/config'
-import { UserController } from './modules/user/user.controller';
+import { UserController } from './modules/user/user.controller'
 
 @Module({
     imports: [
@@ -18,6 +18,5 @@ import { UserController } from './modules/user/user.controller';
         CarBrandModule,
         PrismaModule,
     ],
-    controllers: [UserController],
 })
 export class AppModule {}

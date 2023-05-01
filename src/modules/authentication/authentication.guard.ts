@@ -22,14 +22,15 @@ export class AuthenticationGuard implements CanActivate {
 
         if (!token) throw new UnauthorizedException()
         try {
-            const payload = await this.jwtService.verifyAsync(token, secret)
+            const payload = await this.jwtService.verifyAsync(token, {
+                secret: secret,
+            })
             console.log({ payload })
+            request['user'] = payload
         } catch {
             throw new UnauthorizedException()
         }
         return true
-
-        //
     }
 
     private extractTokenFromHeader(request: Request): string | undefined {
