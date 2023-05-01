@@ -5,7 +5,11 @@ import { PrismaModule } from 'src/modules/prisma/prisma.module'
 import { JwtModule } from '@nestjs/jwt'
 
 @Module({
-    imports: [JwtModule.register({})],
+    imports: [
+        JwtModule.register({
+            global: true,
+        }),
+    ],
     controllers: [AuthenticationController],
     providers: [AuthenticationService],
 })
