@@ -30,6 +30,7 @@ export class AuthenticationGuard implements CanActivate {
         return true
 
         //
+        //
     }
 
     private extractTokenFromHeader(request: Request): string | undefined {
