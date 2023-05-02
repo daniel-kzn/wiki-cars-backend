@@ -25,16 +25,16 @@ model User {
 }
 
 model Car {
-  id             String          @id @default(uuid())
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
-  manufacturerId String
-  manufacturer   CarManufacturer @relation(fields: [manufacturerId], references: [id])
+  id             String           @id @default(uuid())
+  createdAt      DateTime?        @default(now())
+  updatedAt      DateTime?        @updatedAt
+  manufacturerId String?
+  manufacturer   CarManufacturer? @relation(fields: [manufacturerId], references: [id])
   model          String
-  year           Int
-  type           String
-  engine         String
-  fuel           String
+  year           Int?
+  type           String?
+  engine         String?
+  fuel           String?
 }
 
 model CarManufacturer {
@@ -42,6 +42,10 @@ model CarManufacturer {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Car       Car[]
+}
+
+model CarType {
+  id String @id @default(uuid())
 }
 
 enum Role {

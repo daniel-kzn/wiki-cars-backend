@@ -3,6 +3,8 @@ services:
   wiki-cars-postgresql-dev:
     container_name: wiki-cars-bdd-dev
     image: postgres:15.2
+    volumes:
+      - /var/db/postgres/:/var/lib/postgresql/data
     ports:
       - 5434:5432
     environment:
