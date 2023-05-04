@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common'
 import { AuthenticationModule } from './modules/authentication/authentication.module'
-import { UserModule } from './modules/user/user.module'
-import { CarModule } from './modules/car/car.module'
-import { CarBrandModule } from './modules/car-brand/car-brand.module'
+import { UserModule } from './modules/users/user.module'
+import { CarModule } from './modules/cars/car.module'
 import { PrismaModule } from './modules/prisma/prisma.module'
 import { ConfigModule } from '@nestjs/config'
-import { UserController } from './modules/user/user.controller'
 
 @Module({
     imports: [
@@ -15,7 +13,6 @@ import { UserController } from './modules/user/user.controller'
         AuthenticationModule,
         UserModule,
         CarModule,
-        CarBrandModule,
         PrismaModule,
     ],
 })
